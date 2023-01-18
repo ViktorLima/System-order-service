@@ -1,47 +1,46 @@
 {% extends 'base.html' %}
 
 {% block conteudo %}
-<h1 class="mt-5">Service Order</h1>
-<table class="table">
-    <thead>
-    <tr>
-        <th>Nome do cliente</th>
-        <th>Sobrenome</th>
-        <th>Telefone</th>
-        <th>Categoria</th>
-        <th>Descrição</th>
+    <h1 class="mt-5">Service Order</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome do cliente</th>
+            <th>Telefone</th>
+            <th>Categoria</th>
+            <th>Data de criação da O.S</th>
 
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-        <td>
-            <a href="#"> João</a>
-        </td>
-        <td>Miranda</td>
-        <td>35 9 5555-5555</td>
-        <td>Desktop</td>
-        <td>Computador não liga</td>
-    </tr>
-    <tr>
-        <td>
-            <a href="#"> Leandro</a>
-        </td>
-        <td>Moreira</td>
-        <td>35 9 8888-5555</td>
-        <td>Notebook</td>
-        <td>Formatação</td>
-    </tr>
-    <tr>
-        <td>
-            <a href="#"> Fátima</a>
-        </td>
-        <td>Oliveira</td>
-        <td>35 9 9999-4352</td>
-        <td>Impressora</td>
-        <td>Epson não imprimi</td>
-    </tr>
+        </tr>
+        </thead>
+        <tbody>
+    {% for service in services %}
+        <tr>
+            <td id = "customer_id">{{ service.id }}</td>
+            <td>
+                <a  href="{% url 'view_customer' service.id %}">{{ service.nome }} {{ service.sobrenome }}</a>
+            </td>
+            <td>{{ service.telefone }}</td>
+            <td>{{ service.categoria }}</td>
+            <td>{{ service.data|date:'d/m/Y H:i:s'}}</td>
+        </tr>
+    {% endfor %}
     </tbody>
-</table>
+    </table>
+<nav id = "pagination" aria-label="Page navigation example">
+    <ul class="pagination">
+        {% for page in services.paginator.page_range%}
+            {% if services.number == page %}
+                <li class="page-item active">
+                    <a class="page-link" href="?page={{page}}&termo={{ request.GET.termo }}">{{page}}</a>
+                </li>
+                {% else %}
+                <li class="page-item ">
+                    <a class="page-link" href="?page={{page}}&termo={{ request.GET.termo }}">{{page}}</a>
+                </li>
+            {% endif %}
+        {% endfor %}
+    </ul>
+</nav>
 {% endblock %}

@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block conteudo %}
+<h1 class="mt-5">ORDEM DE SERVIÇO</h1>
+
+<dl>
+    <dt>ID</dt>
+    <dd id = >{{customer.id}}</dd>
+
+    <dt>Nome do cliente</dt>
+    <dd>{{customer.nome}} {{customer.sobrenome}}</dd>
+
+    <dt>Telefone</dt>
+    <dd>{{customer.telefone}}</dd>
+
+    <dt>E-mail</dt>
+    <dd>{{customer.email}}</dd>
+
+    <dt>Data de criação da O.S</dt>
+    <dd>{{customer.data|date:'d/m/Y H:i:s'}}</dd>
+
+    <dt>Categoria</dt>
+    <dd>{{customer.categoria}}</dd>
+
+    <dt>Descrição</dt>
+    <dd>
+        {{customer.descricao}}
+    </dd>
+</dl>
+<a href="delete/{{customer.id}}"><button onclick="deleteMessage()" type="button" id ='delete_button' class="btn btn-primary">Excluir cliente</button></a>
+{% endblock %}
