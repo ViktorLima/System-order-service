@@ -6,7 +6,6 @@ from django.db.models.functions import Concat
 from django.contrib import messages
 
 def home(request):
-
     services = Cliente.objects.order_by('-id')
     limit_paginator = Paginator(services, 4)
 
@@ -35,6 +34,7 @@ def delete_customer(request, customer_id):
 def seach(request):
     termo = request.GET.get('termo')
 
+
     if termo is None or not termo:
         messages.add_message(request, messages.ERROR, 'Campo de busca não pode ficar vazio')
         return redirect('home')
@@ -45,6 +45,8 @@ def seach(request):
     ).filter(
         name_full__icontains=termo
     )
+    if termo != full_name:
+        messages.add_message(request, messages.ERROR, 'Cliente não encontrado')
 
     limit_paginator = Paginator(services, 3)
 
