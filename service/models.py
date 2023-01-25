@@ -1,7 +1,6 @@
 from django.utils import timezone
 
 from django.db import models
-from django.db.models.functions import Concat
 
 class Categoria(models.Model):
     nome = models.CharField(max_length=255)
