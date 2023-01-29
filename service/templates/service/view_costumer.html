@@ -1,31 +1,30 @@
 {% extends 'base.html' %}
-
-{% block conteudo %}
-<h1 class="mt-5">ORDEM DE SERVIÇO</h1>
+{% block conteudo  %}
+<h4 class="mt-5">ORDEM DE SERVIÇO</h4>
 
 <dl>
     <dt>ID</dt>
-    <dd id = >{{customer.id}}</dd>
+    <dd id ="deletest" >{{service.id}}</dd>
 
     <dt>Nome do cliente</dt>
-    <dd>{{customer.nome}} {{customer.sobrenome}}</dd>
+    <dd>{{service.nome}} {{service.sobrenome}}</dd>
 
     <dt>Telefone</dt>
-    <dd>{{customer.telefone}}</dd>
+    <dd>{{service.telefone}}</dd>
 
     <dt>E-mail</dt>
-    <dd>{{customer.email}}</dd>
+    <dd>{{service.email}}</dd>
 
     <dt>Data de criação da O.S</dt>
-    <dd>{{customer.data|date:'d/m/Y H:i:s'}}</dd>
+    <dd>{{service.data|date:'d/m/Y H:i:s'}}</dd>
 
     <dt>Categoria</dt>
-    <dd>{{customer.categoria}}</dd>
+    <dd>{{service.categoria}}</dd>
 
     <dt>Descrição</dt>
     <dd>
-        {{customer.descricao}}
+        {{service.descricao}}
     </dd>
 </dl>
-<a href="delete/{{customer.id}}"><button onclick="deleteMessage()" type="button" id ='delete_button' class="btn btn-primary">Excluir cliente</button></a>
+<a href="delete/{{service.id}}"><button onclick="deleteMessage()" type="button" id ='delete_button' class="btn btn-primary">Excluir cliente</button></a>
 {% endblock %}
