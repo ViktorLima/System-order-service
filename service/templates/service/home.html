@@ -24,10 +24,17 @@
             <td>{{ service.telefone }}</td>
             <td>{{ service.categoria }}</td>
             <td>{{ service.data|date:'d/m/Y H:i:s'}}</td>
+            <td>
+                <form method="GET" action="{% url 'view_customer' service.id  %}">
+                    <button type="button" id="button-modal" class="btn btn-primary" data-toggle="modal" data-target="#myModal{{ service.id }}"> Detalhes
+                    </button>
+                </form>
+            </td>
         </tr>
     {% endfor %}
     </tbody>
     </table>
+
 <nav id = "pagination" aria-label="Page navigation example">
     <ul class="pagination">
         {% for page in services.paginator.page_range%}
@@ -43,4 +50,55 @@
         {% endfor %}
     </ul>
 </nav>
+{% for service in services %}
+<!-- The Modal -->
+<div class="modal" id="myModal{{ service.id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <H1 class="modal-title">SERVICE ORDER</H1>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <h4 class="mt-5">CLIENTE</h4>
+                <dl>
+                    <dt>ID</dt>
+                    <dd>{{service.id}}</dd>
+
+                    <dt>Nome do cliente</dt>
+                    <dd>{{service.nome}} {{service.sobrenome}}</dd>
+
+                    <dt>Telefone</dt>
+                    <dd>{{service.telefone}}</dd>
+
+                    <dt>E-mail</dt>
+                    <dd>{{service.email}}</dd>
+
+                    <dt>Data de criação da O.S</dt>
+                    <dd>{{service.data|date:'d/m/Y H:i:s'}}</dd>
+
+                    <dt>Categoria</dt>
+                    <dd>{{service.categoria}}</dd>
+
+                    <dt>Descrição</dt>
+                    <dd>
+                        {{service.descricao}}
+                    </dd>
+                </dl>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <a href="delete/{{service.id}}"><button onclick="deleteMessage()" type="button" id ='delete_button' class="btn btn-primary">Excluir</button></a>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Voltar</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endfor %}
 {% endblock %}
