@@ -10,7 +10,20 @@
     }
  }
 
+function hiderList(){
+    let url = window.location.pathname;
+    let idDashboard = $('#dashboard');
+    let idLogout =  $('#logout');
+    if (url == '/accounts/dashboard/'){
+        idDashboard.hide();
+    }else if(url == '/accounts/login/' || url == '/accounts/register/'){
+         idDashboard.hide();
+         idLogout.hide();
+    }
 
+}
+
+hiderList();
 notUser();
 
 
