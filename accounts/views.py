@@ -1,15 +1,29 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from accounts.models import Profile
-from django.contrib import messages
+from django.contrib import messages, auth
+from django.contrib.auth.decorators import login_required
+from .models import FormCustomer
 
 
 def login(request):
-    return render(request, 'accounts/login.html')
+    if request.method != 'POST':
+        return render(request, 'accounts/login.html')
 
+    user = request.POST.get('user')
+    password = request.POST.get('password')
 
+    user_confirmation = auth.authenticate(request, username=user, password=password)
+    if not user:
+        messages.error(request, 'Usuario ou senha inválidos')
+        return render(request, 'accounts/login.html')
+    else:
+        auth.login(request, user_confirmation)
+        return redirect('dashboard')
+        messages.success(request, 'BEM VINDO')
 def logout(request):
-    return render(request, 'accounts/logout.html')
+    auth.logout(request)
+    return redirect('login')
 
 
 def register(request):
@@ -28,7 +42,7 @@ def register(request):
             elif password != password2:
                 messages.add_message(request, messages.INFO, 'Senha não conferem')
             else:
-                user = User.objects.create_user(username=user, email=email, password=password)
+                user = User.objects.create_user(username=user, email=email, password=password, last_name=last_name, first_name=name)
                 id_usuario = User.objects.get(username=user)
                 perfil = Profile(user=id_usuario, registration=registration)
                 perfil.save()
@@ -38,6 +52,24 @@ def register(request):
 
     return render(request, 'accounts/register.html')
 
-
+@login_required(redirect_field_name='login')
 def dashboard(request):
     return render(request, 'accounts/dashboard.html')
+
+@login_required(redirect_field_name='login')
+def registerofcostumer(request):
+    if request.method != 'POST':
+        form = FormCustomer()
+        return render(request, 'accounts/cadastro.html', {'form': form})
+
+    form = FormCustomer(request.POST)
+
+    if not form.is_valid():
+        messages.error(request, 'Erro ao enviar formulario')
+        form = FormCustomer(request.POST)
+        return render(request, 'accounts/cadastro.html', {'form': form})
+
+
+    form.save()
+    messages.success(request, f'Cliente {request.POST.get("nome")} cadastrado com sucesso')
+    return redirect('home')

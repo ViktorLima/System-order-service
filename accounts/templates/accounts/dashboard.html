@@ -1,5 +1,127 @@
 {% extends 'base.html' %}
-
+{% block titulo %}Dashboard de {{user}} | {% endblock %}
 {% block conteudo %}
-dashboard
+
+
+
+    <div class="container-fluid" id="main">
+        <div class="row row-offcanvas row-offcanvas-left">
+            <div class="col-md-3 col-lg-2 sidebar-offcanvas bg-light pl-0" id="sidebar" role="navigation">
+                <ul class="nav flex-column sticky-top pl-0 pt-5 mt-3">
+                    <h3 class="mt-3 mb-3">Olá {{ user.first_name}}
+                    <br>
+                        O seu nome de úsuario é {{user}}.
+                    </h3>
+                    {% include 'parciais/_messages.html' %}
+                    <li class="nav-item"><a class="nav-link" href="{%  url 'home' %}">Clientes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{%  url 'cadastro' %}">Cadastrar Cliente</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">Agenda</a></li>
+
+                </ul>
+            </div>
+            <!--/col-->
+
+            <div class="col main pt-5 mt-3">
+                <h1 class="display-4 d-none d-sm-block">
+                    Dashboard
+                </h1>
+                <p class="lead d-none d-sm-block">Orion Consultoria em TI</p>
+
+                <div class="alert alert-warning fade collapse" role="alert" id="myAlert">
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-xl-3 col-sm-6 py-2">
+                        <div class="card bg-success text-white h-100">
+
+                                <div class="card-body bg-success">
+                                    <div class="rotate">
+                                        <i class="fa fa-user fa-4x"></i>
+                                    </div>
+                                     <a href="{%  url 'cadastro' %}">
+                                    <h6 class="text-uppercase">Clientes</h6>
+                                    <h1 class="display-4">7</h1>
+                                          </a>
+                                </div>
+
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2">
+                        <div class="card text-white bg-info h-100">
+                            <div class="card-body bg-info">
+                                <div class="rotate">
+                                    <i class="fa fa-list fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Serviços</h6>
+                                <h1 class="display-4">87</h1>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="col-xl-3 col-sm-6 py-2">
+                        <div class="card text-white bg-info h-100">
+                            <div class="card-body bg-info">
+                                <div class="rotate">
+                                    <i class="fa fa-list fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Colaboradores</h6>
+                                <h1 class="display-4">1</h1>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-sm-6 py-2">
+                        <div class="card text-white bg-info h-100">
+                            <div class="card-body bg-info">
+                                <div class="rotate">
+                                    <i class="fa fa-list fa-4x"></i>
+                                </div>
+                                <h6 class="text-uppercase">Fornecedores</h6>
+                                <h1 class="display-4">5</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!--/row-->
+
+                <hr>
+                <div class="row placeholders mb-3">
+                    <div class="col-6 col-sm-3 placeholder text-center">
+                        <img src="https://img2.gratispng.com/20180711/rtc/kisspng-django-web-development-web-framework-python-softwa-django-5b45d913f29027.4888902515313042119936.jpg" class="mx-auto img-fluid rounded-circle"
+                             alt="Generic placeholder thumbnail">
+                        <h4>Clientes</h4>
+                        <span class="text-muted">Quantidade de clientes</span>
+                    </div>
+                    <div class="col-6 col-sm-3 placeholder text-center">
+                        <img src="https://img2.gratispng.com/20180711/rtc/kisspng-django-web-development-web-framework-python-softwa-django-5b45d913f29027.4888902515313042119936.jpg" class="mx-auto img-fluid rounded-circle"
+                             alt="Generic placeholder thumbnail">
+                        <h4>Serviços</h4>
+                        <span class="text-muted">Quantidade de serviços</span>
+                    </div>
+                    <div class="col-6 col-sm-3 placeholder text-center">
+                        <img src="https://img2.gratispng.com/20180711/rtc/kisspng-django-web-development-web-framework-python-softwa-django-5b45d913f29027.4888902515313042119936.jpg" class="mx-auto img-fluid rounded-circle"
+                             alt="Generic placeholder thumbnail">
+                        <h4>Colaboradores</h4>
+                        <span class="text-muted">Quantidade de colaboradores</span>
+                    </div>
+                    <div class="col-6 col-sm-3 placeholder text-center">
+                        <img src="https://img2.gratispng.com/20180711/rtc/kisspng-django-web-development-web-framework-python-softwa-django-5b45d913f29027.4888902515313042119936.jpg" class="mx-auto img-fluid rounded-circle"
+                             alt="Generic placeholder thumbnail">
+                        <h4>Fornecedores</h4>
+                        <span class="text-muted">Quantidade de Fornecedores</span>
+                    </div>
+
+                </div>
+
+                <a id="features"></a>
+                <hr>
+                <p class="lead mt-5">
+                    Emmet is great for that. With it installed in the code editor you are using, you can type “lorem” and then tab and it will expand into a paragraph of Lorem Ipsum placeholder text. But it can do more! You can control how much you get, place it within HTML structure as it expands, and get different bits of it in repeated elements.
+                </p>
+
+                    </div>
+                </div>
+            </div>
 {% endblock %}
