@@ -15,7 +15,7 @@
                     {% include 'parciais/_messages.html' %}
                     <li class="nav-item"><a class="nav-link" href="{%  url 'home' %}">Clientes</a></li>
                     <li class="nav-item"><a class="nav-link" href="{%  url 'cadastro' %}">Cadastrar Cliente</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Agenda</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{%  url 'register' %}">Cadastrar Colaborador</a></li>
 
                 </ul>
             </div>
@@ -41,10 +41,9 @@
                                     <div class="rotate">
                                         <i class="fa fa-user fa-4x"></i>
                                     </div>
-                                     <a href="{%  url 'cadastro' %}">
                                     <h6 class="text-uppercase">Clientes</h6>
-                                    <h1 class="display-4">7</h1>
-                                          </a>
+                                    <h1 class="display-4">{{counter}}</h1>
+
                                 </div>
 
                         </div>
@@ -55,8 +54,8 @@
                                 <div class="rotate">
                                     <i class="fa fa-list fa-4x"></i>
                                 </div>
-                                <h6 class="text-uppercase">Serviços</h6>
-                                <h1 class="display-4">87</h1>
+                                <h6 class="text-uppercase">ORDENS</h6>
+                                <h1 class="display-4">{{counter}}</h1>
                             </div>
                         </div>
                     </div>
@@ -67,18 +66,7 @@
                                     <i class="fa fa-list fa-4x"></i>
                                 </div>
                                 <h6 class="text-uppercase">Colaboradores</h6>
-                                <h1 class="display-4">1</h1>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-sm-6 py-2">
-                        <div class="card text-white bg-info h-100">
-                            <div class="card-body bg-info">
-                                <div class="rotate">
-                                    <i class="fa fa-list fa-4x"></i>
-                                </div>
-                                <h6 class="text-uppercase">Fornecedores</h6>
-                                <h1 class="display-4">5</h1>
+                                <h1 class="display-4">{{profiles}}</h1>
                             </div>
                         </div>
                     </div>
@@ -106,20 +94,9 @@
                         <h4>Colaboradores</h4>
                         <span class="text-muted">Quantidade de colaboradores</span>
                     </div>
-                    <div class="col-6 col-sm-3 placeholder text-center">
-                        <img src="https://img2.gratispng.com/20180711/rtc/kisspng-django-web-development-web-framework-python-softwa-django-5b45d913f29027.4888902515313042119936.jpg" class="mx-auto img-fluid rounded-circle"
-                             alt="Generic placeholder thumbnail">
-                        <h4>Fornecedores</h4>
-                        <span class="text-muted">Quantidade de Fornecedores</span>
-                    </div>
 
                 </div>
 
-                <a id="features"></a>
-                <hr>
-                <p class="lead mt-5">
-                    Emmet is great for that. With it installed in the code editor you are using, you can type “lorem” and then tab and it will expand into a paragraph of Lorem Ipsum placeholder text. But it can do more! You can control how much you get, place it within HTML structure as it expands, and get different bits of it in repeated elements.
-                </p>
 
                     </div>
                 </div>
