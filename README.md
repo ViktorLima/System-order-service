@@ -2,7 +2,7 @@
 System for managing technical assistance services or for the IT sector.
 
 Contains a login screen to access the system
-![login](https://user-images.githubusercontent.com/75453738/215848366-97993774-0930-4658-b75d-73b461a33b2c.png)
+![login](https://user-images.githubusercontent.com/75453738/215851515-168f0a18-6adb-46c7-8b83-ecc5063e3438.png)
 
 Contains a registration screen for employees
 ![Cadastro](https://user-images.githubusercontent.com/75453738/214470497-36656af4-c2b6-452f-a1ce-1d62f7f357b0.jpg)
