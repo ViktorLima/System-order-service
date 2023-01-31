@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% block titulo %} CLIENTES | {% endblock %}
 {% block conteudo %}
     <h1 class="mt-5">Service Order</h1>
     <table class="table">
@@ -56,38 +56,37 @@
     <div class="modal-dialog">
         <div class="modal-content">
 
-            <!-- Modal Header -->
-            <div class="modal-header">
-                <H1 class="modal-title">SERVICE ORDER</H1>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-            </div>
-
             <!-- Modal body -->
             <div class="modal-body">
-                <h4 class="mt-5">CLIENTE</h4>
                 <dl>
-                    <dt>ID</dt>
-                    <dd>{{service.id}}</dd>
 
-                    <dt>Nome do cliente</dt>
-                    <dd>{{service.nome}} {{service.sobrenome}}</dd>
+                    <dt>Ordem de serviço n°:</dt>
+                    <input class="form-control" type="text" placeholder="{{service.id}}" readonly>
 
-                    <dt>Telefone</dt>
-                    <dd>{{service.telefone}}</dd>
+                    <dt>Nome do cliente:</dt>
+                    <input class="form-control" type="text" placeholder="{{service.nome}} {{service.sobrenome}}"
+                           readonly>
 
-                    <dt>E-mail</dt>
-                    <dd>{{service.email}}</dd>
 
-                    <dt>Data de criação da O.S</dt>
-                    <dd>{{service.data|date:'d/m/Y H:i:s'}}</dd>
+                    <dt>Telefone:</dt>
+                    <input class="form-control" type="text" placeholder="{{service.telefone}}" readonly>
 
-                    <dt>Categoria</dt>
-                    <dd>{{service.categoria}}</dd>
 
-                    <dt>Descrição</dt>
-                    <dd>
-                        {{service.descricao}}
-                    </dd>
+                    <dt>E-mail:</dt>
+                    <input class="form-control" type="text" placeholder="{{service.email}}" readonly>
+
+
+                    <dt>Data de criação da O.S:</dt>
+                    <input class="form-control" type="text" placeholder="{{service.data|date:'d/m/Y H:i:s'}}" readonly>
+
+
+                    <dt>Categoria:</dt>
+                    <input class="form-control" type="text" placeholder="{{service.categoria}}" readonly>
+
+
+                    <dt>Descrição:</dt>
+                    <input class="form-control" type="text" placeholder=" {{service.descricao}}" readonly>
+
                 </dl>
             </div>
 

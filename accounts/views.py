@@ -4,6 +4,7 @@ from accounts.models import Profile
 from django.contrib import messages, auth
 from django.contrib.auth.decorators import login_required
 from .models import FormCustomer
+from .models import Cliente
 
 
 def login(request):
@@ -54,7 +55,10 @@ def register(request):
 
 @login_required(redirect_field_name='login')
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    counter = Cliente.objects.all().count()
+    profiles = User.objects.all().count()
+    return render(request, 'accounts/dashboard.html', {'counter': counter, 'profiles': profiles})
+
 
 @login_required(redirect_field_name='login')
 def registerofcostumer(request):
@@ -73,3 +77,4 @@ def registerofcostumer(request):
     form.save()
     messages.success(request, f'Cliente {request.POST.get("nome")} cadastrado com sucesso')
     return redirect('home')
+

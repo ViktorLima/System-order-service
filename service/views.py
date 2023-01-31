@@ -4,7 +4,10 @@ from .models import Cliente
 from django.db.models import Q, Value
 from django.db.models.functions import Concat
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
+
+@login_required(redirect_field_name='login')
 def home(request):
     services = Cliente.objects.order_by('-id')
     limit_paginator = Paginator(services, 4)
@@ -16,20 +19,21 @@ def home(request):
         'services': services
     })
 
-
+@login_required(redirect_field_name='login')
 def view_customer(request, service_id):
     service = get_object_or_404(Cliente, id=service_id)
     return render(request, 'service/view_costumer.html', {
         'service': service
     })
 
+@login_required(redirect_field_name='login')
 def delete_customer(request, service_id):
     delete_customer = Cliente.objects.get(id=service_id)
     delete_customer.delete()
     messages.add_message(request, messages.SUCCESS, 'Cliente deletado com sucesso')
     return redirect('home')
 
-
+@login_required(redirect_field_name='login')
 def seach(request):
     termo = request.GET.get('termo')
     if termo is None or not termo:
@@ -49,3 +53,5 @@ def seach(request):
     return render(request, 'service/seach.html', {
         'services': services
     })
+
+
