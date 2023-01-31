@@ -2,7 +2,7 @@
 System for managing technical assistance services or for the IT sector.
 
 Contains a login screen to access the system
-![login](https://user-images.githubusercontent.com/75453738/215822663-d495201a-7c6a-46b5-b4d1-fb7dc42683d1.png)
+![login](https://user-images.githubusercontent.com/75453738/215848366-97993774-0930-4658-b75d-73b461a33b2c.png)
 
 Contains a registration screen for employees
 ![Cadastro](https://user-images.githubusercontent.com/75453738/214470497-36656af4-c2b6-452f-a1ce-1d62f7f357b0.jpg)
@@ -17,4 +17,4 @@ Contains a customer list screen and details
 ![order](https://user-images.githubusercontent.com/75453738/215367020-ed2c238e-3ef4-4f98-b97c-f21279379ace.png)
 
 Clicking the details button triggers a modal with the work order details where it is possible to delete and view
-![modal](https://user-images.githubusercontent.com/75453738/215822193-4832f270-6dd7-490c-b641-a7b05a7f0d26.png)
+![order](https://user-images.githubusercontent.com/75453738/215848745-ed56e859-ba67-4dfb-81fd-7b6d0f5b8a8c.jpg)
