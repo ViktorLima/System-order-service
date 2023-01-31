@@ -14,7 +14,7 @@ class Cliente(models.Model):
     telefone = models.CharField(max_length=255)
     email = models.CharField(max_length=255, blank=True)
     data = models.DateTimeField(default=timezone.now)
-    descricao = models.TextField(max_length=255)
+    descricao = models.TextField(max_length=50)
     categoria = models.ForeignKey(Categoria, on_delete=models.DO_NOTHING)
 
     def __str__(self):

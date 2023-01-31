@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block titulo %} Cadastro de Cliente | {% endblock %}
+{% block conteudo %}
+{% load static %}
+<form method="POST" action="{% url 'cadastro' %}">
+    {% include 'parciais/_messages.html' %}
+    {% csrf_token %}
+    <table class ="table">
+        {{form}}
+        <tr>
+           <td colspan="2">
+            <button type="submit" class="btn btn-primary">Criar</button>
+           </td>
+        </tr>
+    </table>
+</form>
+{%endblock%}
